@@ -1,11 +1,10 @@
 #!/usr/bin/python3
-"""script"""
+"""script to display value
+"""
 if __name__ == "__main__":
-    import requests
-    url = "https://intranet.hbtn.io/status"
-    response = requests.get(url)
-    content = response.text
-    print_str = '''Body response:
-\t- type: {}
-\t- content: {}'''.format(type(content), content)
-    print(print_str)
+    from requests import get
+
+    html = get('https://alx-intranet.hbtn.io/status')
+    print('Body response:')
+    print("\t- type: {}".format(html.text.__class__))
+    print("\t- content: {}".format(html.text))
